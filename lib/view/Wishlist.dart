@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../sqflite_db/item_db.dart';
 import '../sqflite_db/item_model.dart';
 import 'Placeorder.dart';
+import 'Users.dart';
 
 class Wishlist extends StatefulWidget {
   final Function(bool) callBack;
@@ -117,6 +118,33 @@ class _WishlistState extends State<Wishlist> {
                     ),
                     InkWell(
                       onTap: () async {
+                        SnackBar snackdemo = SnackBar(
+                          content: Row(
+                            children: [
+                              Icon(Icons.check_circle_outline,
+                                  color: Colors.white),
+                              SizedBox(width: 10),
+                              Text('Item Removed from your Wishlist'),
+                            ],
+                          ),
+                          backgroundColor: Color(0xFF128C7E),
+                          elevation: 10,
+                          behavior: SnackBarBehavior.floating,
+                          margin: EdgeInsets.all(5),
+                          duration: Duration(seconds: 1),
+                          animation: CurvedAnimation(
+                            parent: AnimationController(
+                              duration:
+                              Duration(milliseconds: 500),
+                              vsync:
+                              ScaffoldMessenger.of(context),
+                            ),
+                            curve: Curves.bounceOut,
+                          ),
+                        );
+                        ScaffoldMessenger.of(
+                            GlobalContext.context)
+                            .showSnackBar(snackdemo);
                         Item item = Item(
                           id: itemData[index].id,
                           name: itemData[index].name,
@@ -203,6 +231,7 @@ class _WishlistState extends State<Wishlist> {
                               },
                             ),
                           ));
+
                         },
 
                         child: Container(

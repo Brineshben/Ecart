@@ -966,7 +966,7 @@ class _usersState extends State<users> {
                   duration: Duration(seconds: 1),
                   animation: CurvedAnimation(
                     parent: AnimationController(
-                      duration: Duration(milliseconds: 500),
+                      duration: Duration(milliseconds: 300),
                       vsync: ScaffoldMessenger.of(context),
                     ),
                     curve: Curves.bounceOut,
@@ -1082,7 +1082,7 @@ class _usersState extends State<users> {
                                       duration: Duration(seconds: 1),
                                       animation: CurvedAnimation(
                                         parent: AnimationController(
-                                          duration: Duration(milliseconds: 500),
+                                          duration: Duration(milliseconds: 300),
                                           vsync: ScaffoldMessenger.of(context),
                                         ),
                                         curve: Curves.bounceOut,
@@ -1141,7 +1141,7 @@ class _usersState extends State<users> {
                                       duration: Duration(seconds: 1),
                                       animation: CurvedAnimation(
                                         parent: AnimationController(
-                                          duration: Duration(milliseconds: 500),
+                                          duration: Duration(milliseconds: 300),
                                           vsync: ScaffoldMessenger.of(context),
                                         ),
                                         curve: Curves.bounceOut,
@@ -1173,7 +1173,7 @@ class _usersState extends State<users> {
                                       duration: Duration(seconds: 1),
                                       animation: CurvedAnimation(
                                         parent: AnimationController(
-                                          duration: Duration(milliseconds: 500),
+                                          duration: Duration(milliseconds: 300),
                                           vsync: ScaffoldMessenger.of(context),
                                         ),
                                         curve: Curves.bounceOut,
@@ -1209,6 +1209,33 @@ class _usersState extends State<users> {
                                     onPressed: () {
                                       if (_messageController.text.isNotEmpty) {
                                         // _sendMessage(_messageController.text);
+                                        SnackBar snackdemo = SnackBar(
+                                          content: Row(
+                                            children: [
+                                              Icon(Icons.cancel,
+                                                  color: Colors.white),
+                                              SizedBox(width: 10),
+                                              Text('The feature is not in use.'),
+                                            ],
+                                          ),
+                                          backgroundColor: Color(0xFF128C7E),
+                                          elevation: 10,
+                                          behavior: SnackBarBehavior.floating,
+                                          margin: EdgeInsets.all(5),
+                                          duration: Duration(seconds: 1),
+                                          animation: CurvedAnimation(
+                                            parent: AnimationController(
+                                              duration:
+                                              Duration(milliseconds:300),
+                                              vsync:
+                                              ScaffoldMessenger.of(context),
+                                            ),
+                                            curve: Curves.bounceOut,
+                                          ),
+                                        );
+                                        ScaffoldMessenger.of(
+                                            GlobalContext.context)
+                                            .showSnackBar(snackdemo);
                                       }
                                     },
                                   ))
@@ -1235,7 +1262,7 @@ class _usersState extends State<users> {
                                         animation: CurvedAnimation(
                                           parent: AnimationController(
                                             duration:
-                                                Duration(milliseconds: 500),
+                                                Duration(milliseconds: 300),
                                             vsync:
                                                 ScaffoldMessenger.of(context),
                                           ),
